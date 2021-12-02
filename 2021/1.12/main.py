@@ -1,4 +1,4 @@
-raw_ocean_depths = open('input.txt','r')
+raw_ocean_depths = open('2021//1.12//day1.txt','r')
 ocean_depths = raw_ocean_depths.read()
 ocean_depths = ocean_depths.splitlines()
 
