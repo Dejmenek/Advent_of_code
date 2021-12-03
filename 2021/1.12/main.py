@@ -11,7 +11,7 @@ def part_one():
         current_depth = data[i]
         if previous_depth < current_depth:
             sum += 1
-    print(sum)
+    return sum
 
 def part_two():
     sum = 0
@@ -21,7 +21,7 @@ def part_two():
         for i in range(3, len(data)):
             if data[i] - data[i-3] > 0:
                 sum += 1
-        print(sum)
+        return sum
 
-part_one()
-part_two()
+print(part_one())
+print(part_two())
