@@ -4,12 +4,24 @@ ocean_depths = ocean_depths.splitlines()
 
 data = [int(n) for n in ocean_depths]
 
-sum = 0
+def part_one():
+    sum = 0
+    for i in range(1,len(data)):
+        previous_depth = data[i-1]
+        current_depth = data[i]
+        if previous_depth < current_depth:
+            sum += 1
+    print(sum)
 
-for i in range(1,len(data)):
-    previous_depth = data[i-1]
-    current_depth = data[i]
-    if previous_depth < current_depth:
-        sum += 1
+def part_two():
+    sum = 0
+    if len(data) < 4:
+        return None
+    else:
+        for i in range(3, len(data)):
+            if data[i] - data[i-3] > 0:
+                sum += 1
+        print(sum)
 
-print(sum)
+part_one()
+part_two()
