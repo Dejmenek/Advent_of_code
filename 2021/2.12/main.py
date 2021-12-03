@@ -1,11 +1,31 @@
 raw_ocean_depths = open('2021//2.12//day2.txt','r')
-ocean_depths = raw_ocean_depths.read()
-ocean_depths = ocean_depths.splitlines()
+data = raw_ocean_depths.readlines()
 
-data = [int(n) for n in ocean_depths]
 
 def part_one():
-    pass
+    horizontal,depth = 0, 0
+    for command in data:
+        direction, amount = command.split()
+        if direction == "forward":
+            horizontal += int(amount)
+        elif direction == "down":
+            depth += int(amount)
+        elif direction == "up":
+            depth -= int(amount)
+    return horizontal*depth
 
 def part_two():
-    pass
+    horizontal, depth, aim = 0, 0, 0
+    for command in data:
+        direction, amount = command.split()
+        if direction == "forward":
+            horizontal += int(amount)
+            depth += int(amount) * aim
+        elif direction == "down":
+            aim += int(amount)
+        elif direction == "up":
+            aim -= int(amount)
+    return horizontal*depth
+
+print(part_one())
+print(part_two())
